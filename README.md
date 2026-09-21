@@ -48,12 +48,32 @@ with Wi-Fi switched off. InkHub controls the radios independently; the
 - Reader, made for e-ink. EPUB reading with typography controls, contents, highlights,
   annotations and export, dictionary lookup, Wikipedia and in-book search.
 - KOReader alongside Reader. Another reading option for PDFs and other supported formats.
+- Keep your place. InkHub Reader and the installed KOReader share EPUB reading
+  progress locally, including offline. Use the same EPUB and close the book before
+  switching apps. Optional KOReader-compatible account sync carries progress between devices.
 - Tools without the noise. Notes, calculator, Pomodoro, LocalSend file transfers and Terminal.
 - A little downtime. Chess, Sudoku, Blocks, Solitaire and other games.
 - Device-aware controls. Frontlight, natural light and Bluetooth audio through Listen on
   Kobo Libra 2; orientation and physical-button support where the hardware provides them.
 
 Features follow each device's hardware. A web browser is planned for a future release.
+
+## READ YOUR WAY
+
+- **Third-party page turners on Kobo Libra 2.** Pair a compatible Bluetooth HID
+  remote in Settings. Page Up/Down, arrow, volume, Space and Enter keys are mapped
+  to page turns, and remotes can connect while Reader is open. Compatibility
+  depends on the remote's pairing method and key output; individual models are
+  not yet listed as tested. The reMarkable builds do not provide Bluetooth pairing.
+- **Bluetooth audio with Wi-Fi off.** Listen plays local audiobooks and podcasts
+  through compatible headphones or speakers on Kobo Libra 2.
+- **Reading that fits your device.** Automatic reading orientation on Kobo Libra 2
+  and Paper Pure, plus physical page controls on Kobo Libra 2 and reMarkable 1.
+- **Light that follows your evening.** Kobo Libra 2 has separate brightness and
+  warmth controls, with automatic Natural light reaching full warmth at bedtime.
+- **A reader built for responsiveness.** Optimised rendering and cached layouts
+  speed up page turns and returning to books. Timing depends on the device, book
+  and screen-refresh settings.
 
 ## BRING YOUR LIBRARY. CHOOSE HOW IT GETS HERE.
 
