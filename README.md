@@ -125,8 +125,9 @@ is proprietary to AllMumsTalk Limited.
 
 ## COMMUNITY
 
-Share questions, ideas and bug reports at [r/InkHub](https://www.reddit.com/r/InkHub/).
-Community help is available through the subreddit and Reddit DMs.
+For support, bug reports and feature requests, [open a GitHub issue](https://github.com/juicecultus/inkhub-releases/issues/new).
+You can also join [r/InkHub](https://www.reddit.com/r/InkHub/) for community discussion
+and help through the subreddit or Reddit DMs.
 
 For a useful bug report, include your device model, InkHub version, the steps to
 reproduce it and a screenshot where possible. Remove passwords, serial numbers,
