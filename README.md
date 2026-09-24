@@ -14,9 +14,10 @@ An open, Linux-based experience for reading, useful tools and quiet play on your
 Hosted installation and checkout are open at [einkhub.com](https://einkhub.com/install).
 The release uses reMarkable runtime build **2026092403** and Kobo Libra 2 build
 **1157**. All four devices passed their selected installation or update checks,
-including verification of the running release after reboot. Windows and Linux
-physical installation tests are being arranged; those host options remain
-experimental until verified.
+including verification of the running release after reboot. Paper Pure also passed
+fresh USB installation from Arch Linux with Chromium, followed by reboot and
+runtime verification. Windows, other Linux distributions and Linux installation
+on the other models remain unverified.
 
 ## FROM BOOT TO YOUR NEXT BOOK
 
@@ -123,7 +124,7 @@ Check the release notes for your exact model and stock-firmware requirements.
 | --- | --- | --- |
 | Apple silicon Mac, macOS 13 or later | Model-specific ZIP containing InkHub Installer.app | Final packages are signed, Apple-notarized and stapled; Gatekeeper assessment passed. Intel Mac is not supported. |
 | Windows 11 x64 | Portable ZIP containing InkHub Installer.exe | Extract the whole ZIP and keep its bundled files together. Native build and automated tests passed; unsigned and experimental pending physical USB tests. |
-| Linux | Model-specific archive and local helper | Python 3.11+, OpenSSH and minisign required. Experimental pending physical USB tests. |
+| Linux | Model-specific archive and local helper | Python 3.11+, OpenSSH and minisign required. Paper Pure USB installation and reboot verified on Arch Linux with Chromium. Other distributions and models remain unverified. |
 
 Download the installer for your exact model through its page on einkhub.com.
 Follow the [Mac, Windows and Linux installation guide](https://einkhub.com/help/installing)
@@ -149,8 +150,16 @@ recovery requirements on your computer.
 Final release checks passed normal USB installation on RM1, copied-package
 installation with Wi-Fi off on RM2, and production HTTPS OTA over Wi-Fi on
 Paper Pure. All sixteen runtime files were verified before and after a full
-reboot on each reMarkable. These checks do not establish Windows/Linux USB
-compatibility, which is tested separately.
+reboot on each reMarkable.
+
+On 24 September 2026, the published Paper Pure Linux package also passed fresh
+USB installation from **Arch Linux x86_64**, kernel **7.2.6**, using **Chromium 153**,
+Python **3.14.7**, OpenSSH **10.5** and minisign **0.12**. The owner completed the
+website flow in Chromium on Arch; the installed build **2026092403**, active
+services and all **16 runtime file hashes** were checked before and after reboot.
+Preserved InkHub books and settings were restored and checksummed. A separate
+trial timeout returned the device to stock as intended. This verifies that tested
+Paper Pure setup, not Windows, other Linux distributions or the other devices.
 
 
 The guided service is open at [einkhub.com](https://einkhub.com/install).
