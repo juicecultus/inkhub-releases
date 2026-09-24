@@ -1,0 +1,65 @@
+swtcon, vendored for InkHub's reMarkable 2 port
+===============================================
+
+What this is
+------------
+
+The source under this directory is yobert/swtcon 0.1.0, the crates.io
+tarball (swtcon-0.1.0.crate, sha256
+74aa8e81584c48a7f7fda397cc721322691cb4b8a6b9410a7af8c7c29a57dc71, git
+09f07f2f475173fbb3fe99d528222c720b4eb79e, two commits, 1 May 2026), plus
+InkHub's own changes. The changes are kept as one patch,
+tools/remarkable2-vendor/swtcon-0.1.0-inkhub.patch, so what was taken and
+what was written are always separable;
+tools/remarkable2-vendor-check.sh rebuilds this tree from the tarball and
+that patch and fails on any difference.
+
+The licence: GPL-3.0-or-later
+-----------------------------
+
+The crate is labelled MIT upstream and carries LICENSE-MIT, which is kept
+beside this file. InkHub treats it as GPL-3.0-or-later, and ships it that
+way, because of where it came from.
+
+docs/ports/remarkable-2.md, "Provenance and licence of the software
+TCONs", is the full reading. In short: swtcon 0.1.0 is a Rust
+transliteration of timower/rM2-stuff libs/swtcon, which is GPL-3.0, and
+the match is structural rather than incidental (the same drive sequence,
+the same pan-buffer scaffolding, the same magic words, the same phase
+grouping, in the same order). An MIT label on a derivative of a GPL-3.0
+work does not make it MIT, so the whole of this vendored crate, and every
+InkHub binary that links it, is GPL-3.0-or-later. The workspace around it
+is GPL-2.0-or-later, whose "or later" is what makes the combination
+lawful; the reMarkable 2 display binaries are therefore
+GPL-3.0-or-later in effect, and the ports' release notes say so.
+
+Nothing vendor-owned is here. The panel's waveform tables (the .wbf) and
+the panel temperature stay on the device and are read at runtime; no
+libqsgepaper code, no address tables and no reMarkable binary is copied
+into this repository.
+
+What InkHub changed
+-------------------
+
+Two layers, both in the patch and both with their reasons in the module
+notes:
+
+1. The display proof (16 September 2026, sessions s1 to s5): the
+   temperature read with the rails up inside a 1 to 50 C window and no
+   fallback index, the deadline detector that parks and blanks, the
+   frame-done status acknowledged before every message, stale returns
+   charged, whole eight-phase generator passes, the tiled message-buffer
+   walk, bounded init pan codes, the geometry re-checked after
+   FBIOPUT_VSCREENINFO, blank on shutdown and on drop, `open_with`,
+   `OpenOptions`, and the in-memory `mock` ring the tests pace against.
+2. Round 1 of the port (this change): `Mode` carries the panel table's
+   own names (0 INIT, 1 DU, 2 GC16, 3 GL16, 4 GC16_REGAL, 5 GL16_REGAL,
+   6 A2, 7 DU4) and `standard_xochitl_modes` loads the eight at their own
+   index; `Runtime::quiesce` and `Runtime::resume`, and `Swtcon::quiesce`
+   and `Swtcon::resume`, for the sleep path; the idle blank, which powers
+   the rails down after a few seconds with nothing to drive; and the
+   unblank hook, which re-reads the panel temperature every time the
+   rails come back up.
+
+Upstream's prose is kept except for one house rule: em-dashes are
+replaced, everywhere, with ordinary punctuation.

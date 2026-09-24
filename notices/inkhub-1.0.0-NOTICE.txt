@@ -1,0 +1,156 @@
+InkHub is licensed under the GNU General Public License, version 2 or,
+at your option, any later version. The text is in LICENSE. This applies
+to everything in this repository that does not carry its own licence:
+the kernel patch series, the device tree, the launcher, the daemons,
+the installer, the build scripts, the tests and the documentation.
+
+Components built into the images keep their own licences:
+
+  Linux kernel, the mxc-epdc driver and the i.MX e-reader patches by
+  Andreas Kemnade and postmarketOS       GPL-2.0
+  Buildroot                              GPL-2.0-or-later (build system)
+  busybox                                GPL-2.0
+  musl                                   MIT
+  Slint                                  GPL-3.0 (the launcher links it,
+                                         so the launcher binary is
+                                         distributed under GPL-3.0)
+  fastfetch                              MIT
+  curl                                   curl licence (MIT style)
+  Mbed TLS                               Apache-2.0
+  ca-certificates                        MPL-2.0 (the Mozilla bundle)
+  BlueZ                                  GPL-2.0 (daemon), LGPL-2.1 (library)
+  D-Bus                                  AFL-2.1 or GPL-2.0-or-later
+  GLib                                   LGPL-2.1-or-later
+  FBInk                                  GPL-3.0
+  wpa_supplicant                         BSD-3-Clause
+  dufs (the Wi-Fi book share's server)   MIT or Apache-2.0
+  Avahi (the mDNS responder and the
+  local name lookup)                     LGPL-2.1-or-later
+  libdaemon                              LGPL-2.1-or-later
+  Expat                                  MIT
+  zlib's puff.c, the inflater inside
+  qtd-inflate, which unpacks the fonts
+  a Kobo came with during an install     zlib licence
+  Noto Serif, Noto Sans                  SIL Open Font License 1.1
+  Droid Sans Mono                        Apache-2.0
+  Open-Meteo weather data                CC BY 4.0
+  joan-dashboard (design reference)      MIT
+  WordNet 3.1 (the dictionary database)  WordNet licence (BSD style)
+
+The release also offers app images for the memory card. Each carries its
+applicable licence texts. Native InkHub apps that link Slint are distributed
+under GPL-3.0; repository sources without a separate licence remain
+GPL-2.0-or-later. The offered components include:
+
+  KOReader                               AGPL-3.0
+  crengine-ng (InkHub reader engine)      GPL-2.0-or-later
+  GNU Chess 6.2.9                        GPL-3.0-or-later
+  FFmpeg audio tools for Listen          LGPL-2.1-or-later, configured subset
+  rclone (Cloud folder helper)           MIT
+
+The engine and app build scripts pin their sources or downloaded releases.
+KOReader's COPYING travels in koreader.img, GNU Chess's in chess.img, and
+FFmpeg's COPYING.LGPLv2.1 and LICENSE.md in listen.img. The LocalSend components
+are described below. See docs/apps.md for where app images are installed.
+
+The six reading faces, the fonts a book can be set in, are all under the
+SIL Open Font License 1.1:
+
+  Gelasio 1.008
+    Copyright 2022 The Gelasio Project Authors
+    (https://github.com/SorkinType/Gelasio)
+  Literata 3.103
+    Copyright 2017 The Literata Project Authors
+    (https://github.com/googlefonts/literata)
+  Cabin 3.001
+    Copyright 2018 The Cabin Project Authors
+    (https://github.com/impallari/Cabin.git)
+  Zilla Slab 1.1
+    Copyright 2017, The Mozilla Foundation
+  Source Serif 4.005
+    Copyright 2014 - 2023 Adobe (http://www.adobe.com/), with Reserved
+    Font Name 'Source'. All Rights Reserved. Source is a trademark of
+    Adobe in the United States and/or other countries.
+  Crimson Pro 1.004
+    Copyright 2018 The Crimson Pro Project Authors
+    (https://github.com/Fonthausen/CrimsonPro)
+
+The OFL grants permission on the condition that its copyright notice and
+its own text accompany the fonts. They do: each family's licence file is
+installed beside its four faces, at
+/usr/share/fonts/reader/<Family>/OFL.txt (and LICENSE.md for Source
+Serif, which is the name Adobe gives it), lifted from the same pinned
+release the faces come from so it cannot drift from them.
+
+Source Serif carries a Reserved Font Name, which the OFL allows only if
+a modified version is renamed. Nothing here modifies any of the six: they
+are installed byte for byte as the pin in mainline/reader/sources.lock
+fetched them, subsetted and reweighted in no way at all.
+
+Every one of the six is a substitute rather than a copy. Stock's own
+faces are Georgia, Gill Sans, Avenir Next, Caecilia, Amasis and Malabar;
+none of those may be redistributed and none is in this repository or in
+any image it builds. docs/reader/round-10-fonts.md says which open face
+stands in for which and why.
+
+The reader's arrow and mathematical-symbol fallback is Noto Sans Math,
+Copyright 2022 The Noto Project Authors (https://github.com/notofonts/math),
+under SIL Open Font License 1.1. It is pinned unmodified in the reader's
+source lock; mainline/reader/NotoSansMath-OFL.txt is the licence from that
+same google/fonts commit and is installed beside the font in
+/usr/share/fonts/reader/fallback/ under its distinct name.
+
+WordNet's licence grants permission on one condition: that its copyright
+notice, its statements and its disclaimer appear on all copies. They do,
+twice. The full text is installed beside the database itself at
+/usr/share/dict/wordnet/LICENSE, lifted out of the WordNet files at image
+build time so it cannot drift from the release it belongs to, and the
+part the condition names is this.
+
+  WordNet 3.1 Copyright 2011 by Princeton University.  All rights reserved.
+
+  THIS SOFTWARE AND DATABASE IS PROVIDED "AS IS" AND PRINCETON
+  UNIVERSITY MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR
+  IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, PRINCETON
+  UNIVERSITY MAKES NO REPRESENTATIONS OR WARRANTIES OF MERCHANT-
+  ABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE
+  OF THE LICENSED SOFTWARE, DATABASE OR DOCUMENTATION WILL NOT
+  INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR
+  OTHER RIGHTS.
+
+  The name of Princeton University or Princeton may not be used in
+  advertising or publicity pertaining to distribution of the software
+  and/or database.  Title to copyright in this software, database and
+  any associated documentation shall at all times remain with
+  Princeton University and LICENSEE agrees to preserve same.
+
+dufs is redistributed as the published armv7 musl binary rather than
+built here, pinned by SHA-256 in mainline/tools/sources.lock. It is dual
+licensed MIT or Apache-2.0, and both texts are in its own repository at
+github.com/sigoden/dufs. It is a separate program: the launcher does not
+link it, it is started as a child process by
+/usr/sbin/libra2-share-wifi, and nothing of this project's is compiled
+into it. docs/wifi-share.md is the survey and the choice.
+
+Two proprietary pieces are needed to drive this hardware, and neither is
+distributed by this project. Both come off the reader's own device.
+
+The E Ink waveform for the panel is E Ink's, calibrated per panel batch.
+No image this project publishes contains one: not the installed system,
+not the live one. Every Libra 2 carries its own in a raw slot on its
+internal storage, written at the factory, and the OS reads it from there
+at boot, before the display driver loads, so each panel is driven by the
+waveform it was calibrated with.
+
+The Realtek Bluetooth firmware pair is Realtek's. The installer takes it
+from the user's own stock rootfs while that is still on the device.
+
+LocalSend app: the native InkHub interface links Slint and is distributed under
+GPL-3.0-or-later. The LocalSend protocol core and adapted identity module are
+Apache-2.0, copyright 2022–2026 Tien Do Nam, pinned at upstream v1.18.2
+(af0416be50770a97760f7070684bc667b759a15c). Source and local changes are recorded
+in mainline/localsend/README.md. Both licence texts travel in localsend.img.
+
+Noto Sans Symbols 2 supplies editorial scissors and other symbol fallbacks.
+It is pinned in mainline/reader/sources.lock; its SIL Open Font License is
+retained in mainline/reader/NotoSansSymbols2-OFL.txt and installed beside it.

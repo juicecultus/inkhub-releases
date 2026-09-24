@@ -203,6 +203,66 @@ Component licences provide the applicable rights to build, modify and redistribu
 the software. The independent hosted installation and customer-service infrastructure
 is proprietary to AllMumsTalk Limited.
 
+## CREDITS & THIRD-PARTY NOTICES
+
+InkHub builds on the work of the following projects and their contributors.
+Their software, fonts and data retain their own copyrights and licences.
+
+- **Linux and e-reader hardware support:** [Linux](https://www.kernel.org/),
+  [Andreas Kemnade's i.MX e-reader kernel and EPDC work](https://github.com/akemnade/linux),
+  Freescale/NXP's original EPDC driver, and
+  [postmarketOS](https://postmarketos.org/) for its e-reader integration and packaging.
+  [FBInk by NiLuJe and contributors](https://github.com/NiLuJe/FBInk) provides framebuffer drawing tools.
+- **reMarkable 2 display support:** [Joel Jensen's swtcon](https://github.com/yobert/swtcon)
+  and [timower's rM2-stuff software TCON](https://github.com/timower/rM2-stuff).
+  InkHub modifies the vendored swtcon implementation. Its
+  [provenance and modification notice](notices/swtcon-NOTICE.txt) records InkHub's
+  GPL-3.0-or-later distribution treatment; the upstream
+  [MIT copyright and permission notice](notices/swtcon-LICENSE-MIT.txt) is also preserved.
+- **System and interface:** [Buildroot](https://buildroot.org/),
+  [musl](https://musl.libc.org/), [BusyBox](https://busybox.net/),
+  [Slint](https://slint.dev/), [BlueZ](https://www.bluez.org/),
+  [D-Bus](https://www.freedesktop.org/wiki/Software/dbus/), GLib, Avahi,
+  wpa_supplicant, and the Rust ecosystem.
+- **Reading and applications:** [KOReader](https://github.com/koreader/koreader),
+  [crengine-ng](https://gitlab.com/coolreader-ng/crengine-ng),
+  [GNU Chess](https://www.gnu.org/software/chess/), [FFmpeg](https://ffmpeg.org/),
+  and [fastfetch](https://github.com/fastfetch-cli/fastfetch).
+  Dictionary data: WordNet 3.1, Copyright 2011 by Princeton University.
+  All rights reserved. Its required notices and disclaimer are retained in the
+  [release notice](notices/inkhub-1.0.0-NOTICE.txt) and alongside the installed database.
+- **File transfer and installation:** [LocalSend](https://github.com/localsend/localsend)
+  (protocol core and adapted identity module, copyright 2022–2026 Tien Do Nam,
+  Apache-2.0), [rclone](https://rclone.org/), [dufs](https://github.com/sigoden/dufs),
+  [curl](https://curl.se/), [minisign](https://jedisct1.github.io/minisign/),
+  libsodium, OpenSSH, CPython and Astral's python-build-standalone.
+  Bundled host runtimes retain their own third-party notices.
+- **Typography:** the Noto project, Droid Sans Mono, and the creators of
+  Gelasio (Sorkin Type), Literata, Cabin (Impallari), Zilla Slab (Mozilla),
+  Source Serif (Adobe) and Crimson Pro. Their OFL or Apache notices accompany
+  the fonts. FreeType, HarfBuzz, FriBidi, libunibreak and utf8proc support text rendering.
+- **Weather and catalogues:** weather data from [Open-Meteo](https://open-meteo.com/)
+  under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), selected and
+  formatted for InkHub's display. The MIT-licensed
+  [joan-dashboard](https://github.com/juicecultus/joan-dashboard) informed the weather
+  design, WMO mapping and forecast selection.
+  Book catalogue integrations use [Project Gutenberg](https://www.gutenberg.org/),
+  [Standard Ebooks](https://standardebooks.org/), [textos.info](https://www.textos.info/)
+  and [Gallica](https://gallica.bnf.fr/). Catalogue access does not grant rights to
+  redistribute every book or its artwork; each provider's terms apply.
+
+This acknowledgement is an overview, not a replacement for the full licence texts.
+The [original 1.0.0 project notice](notices/inkhub-1.0.0-NOTICE.txt) is reproduced
+unchanged from the published source archive. The [release assets](https://github.com/juicecultus/inkhub-releases/releases/tag/v1.0.0)
+include the corresponding project and dependency sources, Buildroot legal-info,
+font notices and host-runtime notices. Consult those materials for the exact
+versions, copyright notices, local changes and licence terms of each component.
+
+InkHub is independent of these projects and of Rakuten Kobo and reMarkable.
+Credit does not imply their endorsement. Device-owned proprietary waveforms,
+stock fonts and firmware retain their owners' rights; acknowledging them does
+not grant permission to redistribute them.
+
 ## COMMUNITY
 
 For support, bug reports and feature requests, [open a GitHub issue](https://github.com/juicecultus/inkhub-releases/issues/new).
