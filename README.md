@@ -10,7 +10,13 @@ An open, Linux-based experience for reading, useful tools and quiet play on your
 
 </div>
 
-1.0.0_RC is in preparation. Downloads and guided installation open after release testing.
+**InkHub 1.0.0 is in final release checks.** The final packages are prepared:
+reMarkable build **2026092403** and Kobo Libra 2 build **1157**. The GitHub release
+is still a draft and public checkout has not opened. All three reMarkables have
+passed their selected installation/update routes and a full reboot. Kobo's
+post-update verification is the remaining device check. Windows and Linux
+physical installation tests are being arranged; those host options remain
+experimental until verified.
 
 ## FROM BOOT TO YOUR NEXT BOOK
 
@@ -111,6 +117,40 @@ Check the release notes for your exact model and stock-firmware requirements.
 
 ## INSTALLATION & UPDATES
 
+### Choose your computer
+
+| Computer | reMarkable installer | Status |
+| --- | --- | --- |
+| Apple silicon Mac, macOS 13 or later | Model-specific ZIP containing InkHub Installer.app | Final packages are signed, Apple-notarized and stapled; Gatekeeper assessment passed. Intel Mac is not supported. |
+| Windows 11 x64 | Portable ZIP containing InkHub Installer.exe | Extract the whole ZIP and keep its bundled files together. Native build and automated tests passed; unsigned and experimental pending physical USB tests. |
+| Linux | Model-specific archive and local helper | Python 3.11+, OpenSSH and minisign required. Experimental pending physical USB tests. |
+
+Download the installer for your exact model through its page on einkhub.com.
+The reMarkable 1.0.0 kits target stock firmware **3.28.0.172**. Follow the local
+installer's pairing, trial and installation steps. InkHub is the default after
+installation; **Restart into reMarkable** selects the original software for one
+boot. Books and settings remain in place during supported runtime updates.
+
+Kobo Libra 2 uses the **desktop Chrome browser installation flow**, rather than
+the reMarkable desktop helper. Check the model-specific guide for USB setup and
+recovery requirements on your computer.
+
+### Update an existing installation
+
+- **reMarkable:** copy the matching signed `.inkhub` runtime package into
+  `Books/Updates`, or download it through **Settings → Software update** over
+  Wi-Fi. Check the package, then use **Install and restart**. These runtime
+  updates retain the installed board/startup files and stock firmware.
+- **Kobo Libra 2:** use its separate signed system update. reMarkable runtime
+  packages are not compatible with Kobo.
+
+Final release checks passed normal USB installation on RM1, copied-package
+installation with Wi-Fi off on RM2, and production HTTPS OTA over Wi-Fi on
+Paper Pure. All sixteen runtime files were verified before and after a full
+reboot on each reMarkable. These checks do not establish Windows/Linux USB
+compatibility, which is tested separately.
+
+
 The guided service lives at [einkhub.com](https://einkhub.com). When the release opens,
 start there for the model-specific preparation, trial and installation steps.
 
@@ -118,8 +158,10 @@ Back up important data first. For Kobo, keep a copy of the card's stock backup o
 computer too: a backup on the same card cannot protect against that card failing.
 Do not disconnect power or USB while an installation is writing to the device.
 
-The one-off hosted installation purchase includes future seamless OTA software
-installations for that device. Public software releases remain freely available
+The one-off hosted installation purchase includes future OTA software updates
+for that device. The installation service is £6.99, including applicable tax,
+through 31 October 2026, then £9.99. The first 100 installations are free at
+launch, limited to one free claim per verified account across all models. Public software releases remain freely available
 under their component licences.
 
 ## DOWNLOADS YOU CAN VERIFY
@@ -128,7 +170,10 @@ Each published release will identify its device, version, installation requireme
 known limitations and verification instructions. It will include the applicable
 installation/OTA artifacts, signed manifests, checksums and matching source materials.
 
-Downloads are hosted on GitHub Releases, with a Cloudflare R2 mirror for the browser installer.
+Downloads are hosted on GitHub Releases, with a Cloudflare R2 mirror used by
+einkhub.com. Final desktop installer filenames include **2026092403**. Use
+**SHA256SUMS-2026092403** for the final release files, rather than a checksum
+list from an earlier candidate.
 
 Use the files linked in your release's instructions. Signed manifests authenticate
 the release; checksums verify the downloaded bytes.
@@ -137,7 +182,22 @@ the release; checksums verify the downloaded bytes.
 
 For device source, choose the explicitly labelled corresponding-source archive attached
 to each release. It includes covered sources, patches, build instructions and notices.
-GitHub's automatic source ZIP contains this repository's documentation and images.
+GitHub's automatic source ZIP contains this repository's documentation and images,
+not the device software source.
+
+For 1.0.0, the corresponding project archives are:
+
+- `inkhub-1.0.0-source.tar.gz`: Kobo build 1157 and the initial runtime baseline
+  at source commit `4c98c456`.
+- `inkhub-1.0.0-source-92eff0f5.tar.gz`: final reMarkable runtime build 2026092403,
+  including local-update selection and the stock HTTPS trust-store correction.
+- `windows-installer-source-8c3ca72b503e2c56549c1dcfb433e07527a4b15b.tar.gz`:
+  the Windows companion source.
+
+Dependency sources, licence notices and build instructions accompany these
+archives. `source-validation-2026092403.json` distinguishes the targeted final
+launcher builds from the original full clean-build validation. Device-owned
+display waveforms and stock recovery data are not redistributed.
 
 Component licences provide the applicable rights to build, modify and redistribute
 the software. The independent hosted installation and customer-service infrastructure
