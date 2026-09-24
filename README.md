@@ -126,6 +126,8 @@ Check the release notes for your exact model and stock-firmware requirements.
 | Linux | Model-specific archive and local helper | Python 3.11+, OpenSSH and minisign required. Experimental pending physical USB tests. |
 
 Download the installer for your exact model through its page on einkhub.com.
+Follow the [Mac, Windows and Linux installation guide](https://einkhub.com/help/installing)
+for prerequisites, USB setup, pairing, installation and recovery.
 The reMarkable 1.0.0 kits target stock firmware **3.28.0.172**. Follow the local
 installer's pairing, trial and installation steps. InkHub is the default after
 installation; **Restart into reMarkable** selects the original software for one
