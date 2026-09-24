@@ -16,8 +16,9 @@ The release uses reMarkable runtime build **2026092403** and Kobo Libra 2 build
 **1157**. All four devices passed their selected installation or update checks,
 including verification of the running release after reboot. Paper Pure also passed
 fresh USB installation from Arch Linux with Chromium, followed by reboot and
-runtime verification. Windows, other Linux distributions and Linux installation
-on the other models remain unverified.
+runtime verification. Linux installation is supported across all four devices,
+with that Paper Pure/Arch run as the physical reference test. Windows physical
+installation testing is next.
 
 ## FROM BOOT TO YOUR NEXT BOOK
 
@@ -124,7 +125,7 @@ Check the release notes for your exact model and stock-firmware requirements.
 | --- | --- | --- |
 | Apple silicon Mac, macOS 13 or later | Model-specific ZIP containing InkHub Installer.app | Final packages are signed, Apple-notarized and stapled; Gatekeeper assessment passed. Intel Mac is not supported. |
 | Windows 11 x64 | Portable ZIP containing InkHub Installer.exe | Extract the whole ZIP and keep its bundled files together. Native build and automated tests passed; unsigned and experimental pending physical USB tests. |
-| Linux | Model-specific archive and local helper | Python 3.11+, OpenSSH and minisign required. Paper Pure USB installation and reboot verified on Arch Linux with Chromium. Other distributions and models remain unverified. |
+| Linux | Model-specific archive and local helper | Python 3.11+, OpenSSH and minisign required. Supported for all reMarkable models. Physical reference test: Paper Pure installation and reboot on Arch Linux with Chromium. |
 
 Download the installer for your exact model through its page on einkhub.com.
 Follow the [Mac, Windows and Linux installation guide](https://einkhub.com/help/installing)
@@ -159,7 +160,9 @@ website flow in Chromium on Arch; the installed build **2026092403**, active
 services and all **16 runtime file hashes** were checked before and after reboot.
 Preserved InkHub books and settings were restored and checksummed. A separate
 trial timeout returned the device to stock as intended. This verifies that tested
-Paper Pure setup, not Windows, other Linux distributions or the other devices.
+Paper Pure setup. Linux support for the other devices is a product support
+decision; separate physical tests on them or other distributions are not claimed.
+Windows physical installation testing remains outstanding.
 
 
 The guided service is open at [einkhub.com](https://einkhub.com/install).
