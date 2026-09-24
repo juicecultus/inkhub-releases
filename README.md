@@ -10,11 +10,11 @@ An open, Linux-based experience for reading, useful tools and quiet play on your
 
 </div>
 
-**InkHub 1.0.0 is in final release checks.** The final packages are prepared:
-reMarkable build **2026092403** and Kobo Libra 2 build **1157**. The GitHub release
-is still a draft and public checkout has not opened. All three reMarkables have
-passed their selected installation/update routes and a full reboot. Kobo's
-post-update verification is the remaining device check. Windows and Linux
+**[InkHub 1.0.0 is available](https://github.com/juicecultus/inkhub-releases/releases/tag/v1.0.0).**
+Hosted installation and checkout are open at [einkhub.com](https://einkhub.com/install).
+The release uses reMarkable runtime build **2026092403** and Kobo Libra 2 build
+**1157**. All four devices passed their selected installation or update checks,
+including verification of the running release after reboot. Windows and Linux
 physical installation tests are being arranged; those host options remain
 experimental until verified.
 
@@ -151,8 +151,8 @@ reboot on each reMarkable. These checks do not establish Windows/Linux USB
 compatibility, which is tested separately.
 
 
-The guided service lives at [einkhub.com](https://einkhub.com). When the release opens,
-start there for the model-specific preparation, trial and installation steps.
+The guided service is open at [einkhub.com](https://einkhub.com/install).
+Start there for the model-specific preparation, trial and installation steps.
 
 Back up important data first. For Kobo, keep a copy of the card's stock backup on your
 computer too: a backup on the same card cannot protect against that card failing.
@@ -166,8 +166,8 @@ under their component licences.
 
 ## DOWNLOADS YOU CAN VERIFY
 
-Each published release will identify its device, version, installation requirements,
-known limitations and verification instructions. It will include the applicable
+Each published release identifies its device, version, installation requirements,
+known limitations and verification instructions. It includes the applicable
 installation/OTA artifacts, signed manifests, checksums and matching source materials.
 
 Downloads are hosted on GitHub Releases, with a Cloudflare R2 mirror used by
