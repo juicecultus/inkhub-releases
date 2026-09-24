@@ -6,19 +6,19 @@
 
 An open, Linux-based experience for reading, useful tools and quiet play on your e-reader.
 
-[Explore InkHub](https://einkhub.com) · [See the screens](https://einkhub.com/showcase) · [Release downloads](https://github.com/juicecultus/inkhub-releases/releases) · [Join r/InkHub](https://www.reddit.com/r/InkHub/)
+[Explore InkHub](https://inkhub.dev) · [See the screens](https://inkhub.dev/showcase) · [Release downloads](https://github.com/juicecultus/inkhub-releases/releases) · [Join r/InkHub](https://www.reddit.com/r/InkHub/)
 
 </div>
 
 **[InkHub 1.0.0 is available](https://github.com/juicecultus/inkhub-releases/releases/tag/v1.0.0).**
-Hosted installation and checkout are open at [einkhub.com](https://einkhub.com/install).
+Hosted installation and checkout are open at [inkhub.dev](https://inkhub.dev/install).
 The release uses reMarkable runtime build **2026092403** and Kobo Libra 2 build
 **1157**. All four devices passed their selected installation or update checks,
 including verification of the running release after reboot. Paper Pure also passed
 fresh USB installation from Arch Linux with Chromium, followed by reboot and
 runtime verification. Linux installation is supported across all four devices,
-with that Paper Pure/Arch run as the physical reference test. Windows physical
-installation testing is next.
+with that Paper Pure/Arch run as the physical reference test. Paper Pure also connected and ran the trial from Windows 11. The revised final
+browser completion flow is still awaiting physical verification.
 
 ## FROM BOOT TO YOUR NEXT BOOK
 
@@ -36,7 +36,7 @@ installation testing is next.
 </table>
 
 InkHub boot artwork and Home screens from development builds.
-[Explore Reader, tools, games and Terminal →](https://einkhub.com/showcase)
+[Explore Reader, tools, games and Terminal →](https://inkhub.dev/showcase)
 
 ## YOUR E-READER, WITH MORE FREEDOM
 
@@ -124,11 +124,11 @@ Check the release notes for your exact model and stock-firmware requirements.
 | Computer | reMarkable installer | Status |
 | --- | --- | --- |
 | Apple silicon Mac, macOS 13 or later | Model-specific ZIP containing InkHub Installer.app | Final packages are signed, Apple-notarized and stapled; Gatekeeper assessment passed. Intel Mac is not supported. |
-| Windows 11 x64 | Portable ZIP containing InkHub Installer.exe | Extract the whole ZIP and keep its bundled files together. Native build and automated tests passed; unsigned and experimental pending physical USB tests. |
+| Windows 11 x64 | Portable ZIP containing InkHub Installer.exe | Extract the whole ZIP and keep its bundled files together. Native build, automated tests and Paper Pure USB trial passed. Unsigned; revised full browser completion remains unverified. |
 | Linux | Model-specific archive and local helper | Python 3.11+, OpenSSH and minisign required. Supported for all reMarkable models. Physical reference test: Paper Pure installation and reboot on Arch Linux with Chromium. |
 
-Download the installer for your exact model through its page on einkhub.com.
-Follow the [Mac, Windows and Linux installation guide](https://einkhub.com/help/installing)
+Download the installer for your exact model through its page on inkhub.dev.
+Follow the [Mac, Windows and Linux installation guide](https://inkhub.dev/help/installing)
 for prerequisites, USB setup, pairing, installation and recovery.
 The reMarkable 1.0.0 kits target stock firmware **3.28.0.172**. Follow the local
 installer's pairing, trial and installation steps. InkHub is the default after
@@ -162,10 +162,16 @@ Preserved InkHub books and settings were restored and checksummed. A separate
 trial timeout returned the device to stock as intended. This verifies that tested
 Paper Pure setup. Linux support for the other devices is a product support
 decision; separate physical tests on them or other distributions are not claimed.
-Windows physical installation testing remains outstanding.
+On Windows 11 Pro x64, the helper connected and the Paper Pure trial ran through
+Chrome. After the original paired browser tab was closed, permanent installation
+was completed through the same USB decision protocol and verified after reboot;
+37 user files were restored and checked. Helper revision **2026092405** fixes
+native Windows startup and supports recovering an authenticated browser session.
+All three model ZIPs pass native verification. The revised complete Windows
+browser flow and physical RM1/RM2 Windows installations remain unverified.
 
 
-The guided service is open at [einkhub.com](https://einkhub.com/install).
+The guided service is open at [inkhub.dev](https://inkhub.dev/install).
 Start there for the model-specific preparation, trial and installation steps.
 
 Back up important data first. For Kobo, keep a copy of the card's stock backup on your
@@ -185,9 +191,14 @@ known limitations and verification instructions. It includes the applicable
 installation/OTA artifacts, signed manifests, checksums and matching source materials.
 
 Downloads are hosted on GitHub Releases, with a Cloudflare R2 mirror used by
-einkhub.com. Final desktop installer filenames include **2026092403**. Use
-**SHA256SUMS-2026092403** for the final release files, rather than a checksum
-list from an earlier candidate.
+inkhub.dev. Current desktop installer filenames include **2026092405** and pair
+with **https://inkhub.dev**. Use **SHA256SUMS-2026092405-hosts** and
+**host-validation-2026092405.json** for these installers. The signed device
+runtime is unchanged at **2026092403** (Kobo **1157**); its original checksums
+remain **SHA256SUMS-2026092403**. Existing Wi-Fi OTA URLs are unchanged.
+Download the new helper when moving from einkhub.com; an old helper accepts
+only that old website origin. Existing accounts and installation access are retained,
+but you will need to sign in on the new domain. Contact **hello@inkhub.dev**.
 
 Use the files linked in your release's instructions. Signed manifests authenticate
 the release; checksums verify the downloaded bytes.
@@ -205,8 +216,11 @@ For 1.0.0, the corresponding project archives are:
   at source commit `4c98c456`.
 - `inkhub-1.0.0-source-92eff0f5.tar.gz`: final reMarkable runtime build 2026092403,
   including local-update selection and the stock HTTPS trust-store correction.
-- `windows-installer-source-8c3ca72b503e2c56549c1dcfb433e07527a4b15b.tar.gz`:
-  the Windows companion source.
+- `windows-installer-source-ba32ca7e506bdc35974ae8c9e211063d71839429.tar.gz`:
+  current Windows helper companion source, including startup and browser reconnection fixes.
+- `host-installer-source-ba32ca7e506bdc35974ae8c9e211063d71839429.tar.gz`:
+  current Mac/Linux helper and packaging source. Use the existing host dependency
+  source archives alongside it. Earlier companion archives remain available for older installers.
 
 Dependency sources, licence notices and build instructions accompany these
 archives. `source-validation-2026092403.json` distinguishes the targeted final
