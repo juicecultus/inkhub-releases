@@ -10,15 +10,24 @@ An open, Linux-based experience for reading, useful tools and quiet play on your
 
 </div>
 
-**[InkHub 1.0.0 is available](https://github.com/juicecultus/inkhub-releases/releases/tag/v1.0.0).**
-Hosted installation and checkout are open at [inkhub.dev](https://inkhub.dev/install).
-The release uses reMarkable runtime build **2026092403** and Kobo Libra 2 build
-**1157**. All four devices passed their selected installation or update checks,
-including verification of the running release after reboot. Paper Pure also passed
-fresh USB installation from Arch Linux with Chromium, followed by reboot and
-runtime verification. Linux installation is supported across all four devices,
-with that Paper Pure/Arch run as the physical reference test. Paper Pure also connected and ran the trial from Windows 11. The revised final
-browser completion flow is still awaiting physical verification.
+**[InkHub 1.0.1 is available](https://github.com/juicecultus/inkhub-releases/releases/tag/v1.0.1).**
+Install through [inkhub.dev](https://inkhub.dev/install), or update an existing
+installation from Settings. This release uses reMarkable runtime build
+**2026092502** and Kobo Libra 2 build **1195**.
+
+New in 1.0.1: clearer sixteen-tone covers, separately editable Notes titles,
+a shared four-row keyboard, less redraw work across native apps, quieter
+background book processing and a Kobo battery-gauge correction. Paper Pure
+and RM2 retain normal content refreshes for clear text and changing digits.
+See the [release notes](https://github.com/juicecultus/inkhub-releases/releases/tag/v1.0.1)
+for details and verification limits. Physical Bluetooth keyboards and Type Folio
+have not been qualified.
+
+All four devices passed their final update and reboot checks. Each reMarkable's
+17 runtime files matched its signed package; Kobo's 17 application binaries and
+15 app images matched the release. Kobo Notes required its signed app update
+after reboot because the old image had been in use. The release's
+`release-validation-2026092502.json` records the checks and their limits.
 
 ## FROM BOOT TO YOUR NEXT BOOK
 
@@ -130,7 +139,7 @@ Check the release notes for your exact model and stock-firmware requirements.
 Download the installer for your exact model through its page on inkhub.dev.
 Follow the [Mac, Windows and Linux installation guide](https://inkhub.dev/help/installing)
 for prerequisites, USB setup, pairing, installation and recovery.
-The reMarkable 1.0.0 kits target stock firmware **3.28.0.172**. Follow the local
+The reMarkable 1.0.1 kits target stock firmware **3.28.0.172**. Follow the local
 installer's pairing, trial and installation steps. InkHub is the default after
 installation; **Restart into reMarkable** selects the original software for one
 boot. Books and settings remain in place during supported runtime updates.
@@ -148,7 +157,7 @@ recovery requirements on your computer.
 - **Kobo Libra 2:** use its separate signed system update. reMarkable runtime
   packages are not compatible with Kobo.
 
-Final release checks passed normal USB installation on RM1, copied-package
+The original 1.0.0 release checks passed normal USB installation on RM1, copied-package
 installation with Wi-Fi off on RM2, and production HTTPS OTA over Wi-Fi on
 Paper Pure. All sixteen runtime files were verified before and after a full
 reboot on each reMarkable.
@@ -191,14 +200,10 @@ known limitations and verification instructions. It includes the applicable
 installation/OTA artifacts, signed manifests, checksums and matching source materials.
 
 Downloads are hosted on GitHub Releases, with a Cloudflare R2 mirror used by
-inkhub.dev. Current desktop installer filenames include **2026092405** and pair
-with **https://inkhub.dev**. Use **SHA256SUMS-2026092405-hosts** and
-**host-validation-2026092405.json** for these installers. The signed device
-runtime is unchanged at **2026092403** (Kobo **1157**); its original checksums
-remain **SHA256SUMS-2026092403**. Existing Wi-Fi OTA URLs are unchanged.
-Download the new helper when moving from einkhub.com; an old helper accepts
-only that old website origin. Existing accounts and installation access are retained,
-but you will need to sign in on the new domain. Contact **hello@inkhub.dev**.
+inkhub.dev. The 1.0.1 desktop installers include **2026092502** in their filenames
+and pair with **https://inkhub.dev**. Use the release's **SHA256SUMS-2026092502**
+to verify the downloads. The stable Wi-Fi OTA discovery URLs are unchanged.
+Existing accounts and installation access are retained. Contact **hello@inkhub.dev**.
 
 Use the files linked in your release's instructions. Signed manifests authenticate
 the release; checksums verify the downloaded bytes.
@@ -210,22 +215,19 @@ to each release. It includes covered sources, patches, build instructions and no
 GitHub's automatic source ZIP contains this repository's documentation and images,
 not the device software source.
 
-For 1.0.0, the corresponding project archives are:
+For 1.0.1, use **inkhub-1.0.1-source-2132019e.tar.gz** together with
+**kernel-working-source.tar.gz** and the dependency archives linked in
+**SOURCE-README-2026092502.md**. The unchanged dependency archives remain
+available at their original 1.0.0 URLs; **unchanged-source-inputs.json** records
+their sizes and checksums. The source README explains the application build,
+corrected display helpers and packaging provenance. Host installer sources are
+included in the project archive.
 
-- `inkhub-1.0.0-source.tar.gz`: Kobo build 1157 and the initial runtime baseline
-  at source commit `4c98c456`.
-- `inkhub-1.0.0-source-92eff0f5.tar.gz`: final reMarkable runtime build 2026092403,
-  including local-update selection and the stock HTTPS trust-store correction.
-- `windows-installer-source-ba32ca7e506bdc35974ae8c9e211063d71839429.tar.gz`:
-  current Windows helper companion source, including startup and browser reconnection fixes.
-- `host-installer-source-ba32ca7e506bdc35974ae8c9e211063d71839429.tar.gz`:
-  current Mac/Linux helper and packaging source. Use the existing host dependency
-  source archives alongside it. Earlier companion archives remain available for older installers.
-
-Dependency sources, licence notices and build instructions accompany these
-archives. `source-validation-2026092403.json` distinguishes the targeted final
-launcher builds from the original full clean-build validation. Device-owned
-display waveforms and stock recovery data are not redistributed.
+Release validation distinguishes signed-artifact and device checks from the
+broader legacy test suite, which is not wholly passing. It does not claim a new
+clean rebuild of every dependency. Device-owned display waveforms and stock
+recovery data are not redistributed. Older release sources remain available
+alongside their original releases.
 
 Component licences provide the applicable rights to build, modify and redistribute
 the software. The independent hosted installation and customer-service infrastructure
@@ -280,8 +282,9 @@ Their software, fonts and data retain their own copyrights and licences.
   redistribute every book or its artwork; each provider's terms apply.
 
 This acknowledgement is an overview, not a replacement for the full licence texts.
-The [original 1.0.0 project notice](notices/inkhub-1.0.0-NOTICE.txt) is reproduced
-unchanged from the published source archive. The [release assets](https://github.com/juicecultus/inkhub-releases/releases/tag/v1.0.0)
+The [1.0.1 project notice](notices/inkhub-1.0.1-NOTICE.txt) is reproduced
+from the corresponding source archive; the original 1.0.0 notice remains available.
+The [release assets](https://github.com/juicecultus/inkhub-releases/releases/tag/v1.0.1)
 include the corresponding project and dependency sources, Buildroot legal-info,
 font notices and host-runtime notices. Consult those materials for the exact
 versions, copyright notices, local changes and licence terms of each component.
